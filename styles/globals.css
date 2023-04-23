@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input, textarea {
+    @apply border-2 rounded-lg border-gray-300 px-2 w-full;
+    @apply mb-2;
+}
+
+h1 {
+    @apply text-blue-900 mb-2 text-xl;
+}
+
+label {
+    @apply text-blue-900;
+}
+
+.btn-primary {
+    @apply bg-blue-900 text-white px-4 py-1 rounded-lg;
+}
+
+table.basic {
+    @apply w-full;
+}
+
+table.basic thead tr td {
+    @apply bg-blue-200
+}
+
+table.basic tr td {
+    @apply border-2 border-blue-200  p-1;
+}
+
+table.basic a {
+    @apply bg-blue-900 text-white text-sm p-1 px-2 rounded-lg inline-flex gap-1;
+}
