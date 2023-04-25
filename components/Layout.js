@@ -7,8 +7,11 @@ export default function Layout({children}) {
 
   if (!session) {
     return (
-      <div className="bg-blue-900 w-screen h-screen flex items-center">
-        <div className="text-center w-full">
+      <div className="w-screen h-screen flex">
+        <div className="text-center w-3/6 bg-blue-900 flex items-center justify-center">
+          <img src="../public"/>
+        </div>
+        <div className="text-center w-3/6 bg-white flex items-center justify-center">
           <button className="bg-white p-2 px-4 rounded-lg" onClick={() => signIn('google')}>Login with Google</button>
         </div>
       </div>
