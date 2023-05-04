@@ -2,56 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --primary-100:#26A69A;
+    --primary-200:#408d86;
+    --primary-300:#cdfaf6;
+    --accent-100:#80CBC4;
+    --accent-200:#43A49B;
+    --text-100:#263339;
+    --text-200:#728f9e;
+    --bg-100:#E0F2F1;
+    --bg-200:#D0EBEA;
+    --bg-300:#FFFFFF;
+    --rounded-lg: 0.5rem;
+}
+
 img {
     max-height: 100%;
 }
 
-input, textarea, select {
-    @apply border-2 rounded-lg border-gray-300 w-full py-2 px-3;
-    @apply mb-2;
+ input, textarea, select {
+    width: 100%;
+    padding: 0.75rem 0.5rem;
+    border-width: 2px;
+    border-radius: var(--rounded-lg);
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--text-200);
 }
 
 input:focus, textarea:focus, select:focus {
-    @apply border-blue-900;
+    border: 2px solid var(--primary-100);
 }
 
 h1 {
-    @apply text-gray-800 mb-4 text-xl;
-}
-
-
-.btn-primary {
-    @apply bg-blue-900 text-white px-4 py-1 rounded-lg;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--text-100);
 }
 
 label {
-    @apply text-gray-600 text-sm;
+    color: var(--text-100);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
 }
 
 table.basic {
-    @apply w-full bg-white rounded-lg shadow-md;
+    width: 100%;
+    background-color: var(--bg-100);
+    border-radius: var(--rounded-lg);
 }
 
 table.basic thead tr td {
-    @apply text-sm text-gray-600 uppercase border-b border-gray-200 px-4 py-2;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-200);
 }
 
 table.basic tr td {
-    @apply px-4 py-1;
+    padding: 0.25rem 1rem;
 }
 
 table.basic a {
-    @apply text-sm p-1 px-2 rounded-lg inline-flex gap-1 mr-1;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 0.25rem 0.5rem;
+    display: inline-flex;
+    border-radius: var(--rounded-lg);
+    gap: 0.25rem;
+    margin-right: 0.25rem; 
+}
+
+.btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    gap: 0.5rem;
+    background-color: var(--primary-100);
+    color: var(--primary-300);
+    padding: 0.25rem 1rem;
+    border-radius: var(--rounded-lg);
+}
+
+.btn-primary svg {
+    border: 2px dashed var(--primary-300);
+    border-radius: var(--rounded-lg);
+    color: var(--primary-300);
 }
 
 .btn-red, .btn-default {
-    @apply px-4 py-1 rounded-lg;
+    padding: 0.25rem 1rem;
+    border-radius: var(--rounded-lg);
 }
 
 .btn-red {
-    @apply bg-red-800 text-white;
+    color: var(--primary-300);
+    background-color: red;
 }
 
 .btn-default {
-    @apply bg-gray-400 text-white;
+    color: var(--primary-300);
+    background-color: var(--text-200);
 }
