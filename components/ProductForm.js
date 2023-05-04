@@ -107,13 +107,15 @@ export default function ProductForm({
                 ))}
             </select>
             {propertiesToFill.length > 0 && propertiesToFill.map(p => (
-                <div className="flex gap-1">
-                    <div>{p.name}</div>
-                    <select value={productProperties[p.name]} onChange={(e) => setProductProp(p.name, e.target.value)}>
-                        {p.values.map(v => (
-                            <option value={v}>{v}</option>
-                        ))}
-                    </select>
+                <div>
+                    <label>{p.name[0].toUpperCase()+p.name.substring(1)}</label>
+                    <div>
+                        <select value={productProperties[p.name]} onChange={(e) => setProductProp(p.name, e.target.value)}>
+                            {p.values.map(v => (
+                                <option value={v}>{v}</option>
+                            ))}
+                        </select>
+                    </div>
                 </div>
             ))}
 
@@ -121,7 +123,7 @@ export default function ProductForm({
             <div className="mb-2 flex flex-wrap gap-2">
                 <ReactSortable className="mb-2 flex flex-wrap gap-2" list={images} setList={updateImagesOrder}>
                     {!!images?.length && images.map(link => (
-                        <div key={link} className="h-32">
+                        <div key={link} className="h-32 bg-white p-4 shadow-sm rounded-lg border">
                             <img className="rounded-lg cursor-pointer" src={link} alt=""/>
                         </div>
                     ))}

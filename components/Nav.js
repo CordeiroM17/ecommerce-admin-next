@@ -1,11 +1,12 @@
 import { signOut } from "next-auth/react";
 import Link from "next/link"
 import { useRouter } from "next/router";
+import Logo from "./Logo";
 
-export default function Nav() {
+export default function Nav({show}) {
 
     const inactiveLink = 'flex gap-1 p-1';
-    const activeLink = inactiveLink+ ' bg-white text-blue-900 rounded-l-lg';
+    const activeLink = inactiveLink+ ' bg-white text-blue-900 rounded-lg';
     const router = useRouter();
     const {pathname} = router;
 
@@ -15,12 +16,15 @@ export default function Nav() {
     }
 
     return (
-        <aside className="text-white p-4 pr-0">
-            <Link href={'/'} className="flex gap-1 mb-4 mr-4">
-                <span className="">
-                    EcommerceAdmin
-                </span>
-            </Link>
+        <aside className={(show ? 'left-0' : '-left-full') + " top-0 text-white p-4 fixed w-full bg-blue-900 h-full md:static md:w-auto transition-all"}>
+            <div className="mb-4 mr-4 flex justify-between items-center">
+                <Logo />
+                <button className='md:hidden'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={"w-8 h-8"}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
             <nav className="flex flex-col gap-2">
                 <Link href={'/'} className={pathname === '/' ? activeLink : inactiveLink}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -52,7 +56,7 @@ export default function Nav() {
                     </svg>
                     Settings
                 </Link>
-                <button type="button" className={inactiveLink} onClick={logout}>
+                <button className={inactiveLink} onClick={logout}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
                     </svg>
