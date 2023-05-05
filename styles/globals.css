@@ -16,11 +16,63 @@
     --rounded-lg: 0.5rem;
 }
 
+[data-theme='dark'] {
+    --primary-100:#00ADB5;
+    --primary-200:#AAE3E2;
+    --primary-300:#fdf6fd;
+    --accent-100:#AC7DD2;
+    --accent-200:#fff4ff;
+    --text-100:#EEEEEE;
+    --text-200:#C5C5C5;
+    --bg-100:#222831;
+    --bg-200:#393E46;
+    --bg-300:#454e59;
+    --rounded-lg: 0.5rem;
+}
+
+.aside {
+    color: var(--text-200);
+    background-color: var(--bg-300);
+}
+
+.inactiveLink {
+    display: flex;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    align-items: center;
+    color: var(--text-200);
+}
+
+.activeLink {
+    display: flex;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    align-items: center;
+    color: var(--text-100)
+}
+
+.inactiveIcon {
+    height: 2rem; width: 2rem;
+    padding: 0.25rem;
+    background-color: var(--bg-200);
+    border-radius: var(--rounded-lg);
+    color: var(--text-200);
+}
+
+.activeIcon {
+    height: 2rem; width: 2rem;
+    padding: 0.25rem;
+    background-color: var(--primary-200);
+    border-radius: var(--rounded-lg);
+    background-color: var(--primary-100);
+    color: var(--primary-300);
+}
+
 img {
     max-height: 100%;
 }
 
- input, textarea, select {
+input, textarea, select {
     width: 100%;
     padding: 0.75rem 0.5rem;
     border-width: 2px;
@@ -74,6 +126,12 @@ table.basic a {
     margin-right: 0.25rem; 
 }
 
+.upload {
+    color: var(--text-100);
+    border-radius: var(--rounded-lg);
+    background-color: var(--bg-200);
+}
+
 .btn-primary {
     display: flex;
     align-items: center;
@@ -102,7 +160,17 @@ table.basic a {
     background-color: red;
 }
 
+.dark .btn-red {
+    color: var(--bg-100);
+    background-color: red;
+}
+
 .btn-default {
-    color: var(--primary-300);
-    background-color: var(--text-200);
+    color: var(--bg-100);
+    background-color: var(--text-100);
+}
+
+.dark .btn-default {
+    color: var(--bg-100);
+    background-color: var(--text-100);
 }

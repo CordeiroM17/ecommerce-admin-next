@@ -5,6 +5,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}"
   ],
+  darkMode: 'class',
   theme: {
     extend: {},
     colors: {
@@ -26,7 +27,25 @@ module.exports = {
         200: '#D0EBEA',
         300: '#FFFFFF',
       },
-    }
+      darkPrimaryColor: {
+        100: '#00ADB5',
+        200: '#AAE3E2',
+        300: '#fdf6fd',
+      },
+      darkPrimaryAccent: {
+        100: '#AC7DD2',
+        200: '#fff4ff',
+      },
+      darkPrimaryText: {
+        100: '#EEEEEE',
+        200: '#C5C5C5',
+      },
+      darkPrimaryBg: {
+        100: '#222831',
+        200: '#393E46',
+        300: '#454e59',
+      },
+    },
   },
   plugins: [],
 }
