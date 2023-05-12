@@ -123,7 +123,7 @@ export default function ProductForm({
             <div className="mb-2 flex flex-wrap gap-2">
                 <ReactSortable className="mb-2 flex flex-wrap gap-2" list={images} setList={updateImagesOrder}>
                     {!!images?.length && images.map(link => (
-                        <div key={link} className="h-32 bg-white p-4 shadow-sm rounded-lg border">
+                        <div key={link} className="h-32 shadow-sm rounded-lg">
                             <img className="rounded-lg cursor-pointer" src={link} alt=""/>
                         </div>
                     ))}

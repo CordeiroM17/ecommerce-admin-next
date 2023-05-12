@@ -115,10 +115,10 @@ export default function Categories() {
                     <input
                         type="text"
                         placeholder={'Category name'}
-                        onChange={ev => setName(ev.target.value)}
-                        value={name}/>
-                    <select onChange={ev => setParentCategory(ev.target.value)}
-                            value={parentCategory}>
+                        onChange={(ev) => setName(ev.target.value)}
+                        value={name} 
+                    />
+                    <select onChange={(ev) => setParentCategory(ev.target.value)} value={parentCategory}>
                         <option value="">No parent category</option>
                         {categories.length > 0 && categories.map(category => (
                         <option key={category._id} value={category._id}>{category.name}</option>
@@ -126,7 +126,7 @@ export default function Categories() {
                     </select>
                 </div>
                 <div className="mb-2">
-                    <label className="block">Properties</label>
+                    <label className="block m-2">Properties</label>
                     <button type="button" className="btn-default text-sm mb-2" onClick={addProperty}>Add new property</button>
                     {properties.length > 0 && properties.map((property, index) => (
                         <div className="flex gap-1 mb-2">

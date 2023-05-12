@@ -7,21 +7,16 @@ export default function Nav({show}) {
 
     const router = useRouter();
     const {pathname} = router;
-
+    
     async function logout() {
         await router.push('/');
         await signOut()
     }
 
     return (
-        <aside className={(show ? 'left-0' : '-left-full') + " top-0 p-4 fixed w-full h-full md:static md:w-auto transition-all"}>
+        <aside className={(show ? 'left-0' : '-left-full') + " fixed w-full h-full md:static md:w-auto transition-all"}>
             <div className="mb-4 mr-4 flex justify-between items-center">
                 <Logo />
-                <button className='md:hidden'>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={"w-8 h-8"}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
             </div>
             <nav className="flex flex-col gap-2">
                 <Link href={'/'} className={pathname === '/' ? 'activeLink' : 'inactiveLink'}>
