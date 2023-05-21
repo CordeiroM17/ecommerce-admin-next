@@ -6,16 +6,16 @@ import Swal from "sweetalert2";
 
 export default function AdminsPage() {
 
-    const [email, setEmail] = useState('')
-    const [adminEmail, setAdminEmail] = useState([])
+    const [email, setEmail] = useState('');
+    const [adminEmails, setAdminEmails] = useState([]);
 
     useEffect(() => {
-       loadAdmins()
+       loadAdmins();
     }, []);
 
     function loadAdmins() {
         axios.get('/api/admins').then(res => {
-            setAdminEmail(res.data);
+            setAdminEmails(res.data);
         });
     }
 
@@ -26,7 +26,8 @@ export default function AdminsPage() {
                 icon:'success',
                 title: 'Admin created'
             });
-            setEmail('')
+            setEmail('');
+            loadAdmins();
         }).catch(err => {
             Swal.fire({
                 icon:'error',
@@ -79,18 +80,18 @@ export default function AdminsPage() {
                         <td></td>
                         <td></td>
                     </tr>
-                    <tbody>
-                        {adminEmail.length > 0 && adminEmail.map(adminEmail => (
-                            <tr key={adminEmail._id}>
-                                <td>{adminEmail.email}</td>
-                                <td>{adminEmail.createdAt && prettyDate(adminEmail.createdAt)}</td>
-                                <td>
-                                    <button onClick={() => deleteAdmin(adminEmail._id, adminEmail.email)} className="btn-red">Delete</button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
                 </thead>
+                <tbody>
+                    {adminEmails.length > 0 && adminEmails.map(adminEmail => (
+                        <tr key={adminEmail._id}>
+                            <td>{adminEmail.email}</td>
+                            <td>{adminEmail.createdAt && prettyDate(adminEmail.createdAt)}</td>
+                            <td>
+                                <button onClick={() => deleteAdmin(adminEmail._id, adminEmail.email)} className="btn-red">Delete</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
             </table>
         </Layout>
     );
